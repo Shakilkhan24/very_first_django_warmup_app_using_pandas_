@@ -5,7 +5,6 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 import pandas_profiling
-from pydantic_settings import BaseSettings
 
 
 def index(request):
@@ -31,14 +30,6 @@ def explore_data(request):
     context = {'head': head, 'tail': tail,'describe': describe}
     return render(request, 'app/explore_data.html', context)
 
-def explore_more(request):
-    df = pd.read_json(request.session.get('df'))
-    head = df.head().to_html()
-    tail = df.tail().to_html()
-    # info = df.info().to_html()
-    describe = df.describe().to_html()
-    context = {'head': head, 'tail': tail,'describe': describe}
-    return render(request, 'app/explore_more.html', context)
 
 
 def explore_more(request):
