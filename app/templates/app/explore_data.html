@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Explore Data</title>
+</head>
+<body>
+    <h1>Explore Data</h1>
+    <h2>Head</h2>
+    {{ head|safe }}
+    <h2>Tail</h2>
+    {{ tail|safe }}
+    <h2>Describe</h2>
+    {{ describe|safe }}
+
+
+    <p>Want to see the profile report to explore more?</p>
+    <a href="{% url 'app:explore_more' %}">
+        <button>View Profile Report</button>
+    </a>
+
+
+</body>
+</html>

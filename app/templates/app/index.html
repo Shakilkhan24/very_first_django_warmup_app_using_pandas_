@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Analysis</title>
+</head>
+<body>
+    <h1>CSV Analysis</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="post" action="{% url 'csvanalysis:load_data' %}">
+        {% csrf_token %}
+        <label for="csv_path">Enter CSV file path:</label>
+        <input type="text" id="csv_path" name="csv_path" required>
+        <input type="submit" value="Load Data">
+    </form>
+</body>
+</html>
